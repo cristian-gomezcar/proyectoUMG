@@ -1,0 +1,21 @@
+{% extends 'base2.html' %}
+
+{% block titulo %} Informacion {% endblock %}
+
+{% block propio %}
+	<img src="/static/Imagenes/logo.jpg" width="30%" style="position: absolute; right: 100px">
+
+
+<nav class="navbar navbar-inverse" style="width: 33%; background-color: rgba(02,49,59)" id="nav2">
+
+      <ul class="nav flex-column" >
+        <li class="nav-item2"><a id="nav-link2"  href="{% url 'app2:listarDocentes' %}">Docentes</a></li>
+        <li class="nav-item2"><a id="nav-link2" href="{% url 'app2:listarEstudiantes' %}">Estudiantes</a></li>
+        <li class="nav-item2"><a id="nav-link2"  href="{% url 'app2:listarCursos' %}">Cursos</a></li>
+        <li class="nav-item2"><a id="nav-link2"  href="{% url 'app2:listarCarreras' %}">Carreras</a></li>
+
+        <li class="nav-item2"><a id="nav-link2"  href="{% url 'app2:listarNotas' %}">Notas</a></li>
+
+      </ul>
+</nav>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+</head>
+<body>
+<div style="margin: 27px">
+	<legend class="legend">Modifique los nuevos datos</legend>
+
+		<form method='POST'>
+			{% csrf_token%}
+			{{form.as_p}}
+			<input type="submit" name="Actualizar" value="Actualizar" class="btn btn-primary mx-auto d-block text-center">
+		</form>
+</div>
+
+</body>
+</html>

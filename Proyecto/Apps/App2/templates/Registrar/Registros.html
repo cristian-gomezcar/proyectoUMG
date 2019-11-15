@@ -1,0 +1,20 @@
+{% extends 'base2.html' %}
+
+{% block titulo %} RegistrarCarrera {% endblock %}
+
+{% block propio %}
+<img src="/static/Imagenes/logo.jpg" width="30%" style="position: absolute; right: 100px">
+
+<nav class="navbar navbar-inverse" style="width: 33%; background-color: rgba(02,49,59)" id="nav3">
+
+  <ul class="nav lex-column" >
+    <li class="nav-item3"><a id="nav-link3"  href="{% url 'app2:RegistrarDocentes' %}">Registrar Docentes</a></li>
+    <li class="nav-item3"><a id="nav-link3" href="{% url 'app2:RegistrarEstudiantes' %}">Registrar Estudiantes</a></li>
+    <li class="nav-item3"><a id="nav-link3"  href="{% url 'app2:RegistrarCurso' %}">Registrar Cursos</a></li>
+    <li class="nav-item3"><a id="nav-link3"  href="{% url 'app2:RegistrarCarrera' %}">Registrar Carrera</a></li>
+    <li class="nav-item3"><a id="nav-link3"  href="{% url 'app2:SubirNotas' %}">Subir Notas</a></li>
+
+  </ul>
+</nav>
+
+{% endblock %}

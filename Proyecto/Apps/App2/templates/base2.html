@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{% block titulo %} Home {% endblock %} </title>
+  <meta name="keywords" content="liceo Minerva, colegio liceo  Minervan, minerva, San pedro Sacatepequez San Marcos">
+  <meta name="description" content="Pagina web del colegio liceo Minerva">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+
+	<script src="{% static 'bootstrap/js/bootstrap.js '%}"></script>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/estilos2.css' %}">
+
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse" id="nav2" style="background-color: rgb(99, 00,00) ;width: 100%; position: flex; margin-top: 5px">
+
+    <div class="navbar-header">
+      <span class="titulo2">Menu</span>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" >
+        
+        <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'app2:Inicio' %}">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'app2:Registros' %}">Registros</a></li>
+        <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'app2:Administrar' %}">Administrar</a></li>
+        <li class="nav-item"><a class="nav-link" style="color: white" href="{% url 'app2:registrar' %}">Crear Usuarios</a></li>
+        <li class="dropdown" id="salir">
+          <a href="#"  class="dropdown-toggle nav-item" data-toggle="dropdown" role="button" aria-expanded="false"> Opciones</a>
+          <ul class="dropdown-menu" role="menu">
+             <li><a class="nav-link" href="{% url 'logout' %}">Salir</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section style="padding: 0px 15px;">
+  {% block propio %}
+  {% endblock %}
+
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+</head>
+<body>
+<center>
+	<form class="navbar-search" method="post" action="#" style="margin: 10px">
+		{% csrf_token %}
+		<input type="text" class="search-query" placeholder="Buscar" name="buscar">
+		<input type="submit" class="btn btn-primary"  value="Buscar">
+	</form>
+</center>
+
+<table class="table table-hover table-responsive table-bordered" style="margin:10px auto; width: 99%">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Fecha de Nacimiento</th>
+			<th scope="col">Direccion</th>
+			<th scope="col">Correo</th>
+			<th scope="col">Seccion</th>
+			<th scope="col">Carrera</th>
+			<th scope="col">Docentes</th>
+			<th scope="col">Acciones</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		{% if object_list %}
+
+		{% for Estudiante in object_list %}
+
+		<tr>
+			<th scope="row">{{Estudiante.idestudiante}}</th>
+			<td>{{Estudiante.pnombre}} {{Estudiante.snombre}} {{Estudiante.pApellido}} {{Estudiante.sApellido}}</td>
+			<td>{{Estudiante.fNacimiento}}</td>
+			<td>{{Estudiante.direccion}}</td>
+			<td>{{Estudiante.correo}}</td>
+			<td>{{Estudiante.seccion}}</td>
+			<td>{{Estudiante.idcarrera}}</td>
+			{% for e in Estudiante.iddocente.all %}
+			<td> {{e.pnombre}} {{e.pApellido}}</td>
+			{% endfor %}
+			<td>
+				<a class="btn btn-primary" href="{% url 'app2:ActualizarEstudiante' Estudiante.idestudiante %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'app2:EstudianteDelete' Estudiante.idestudiante %}">Eliminar</a>	
+			</td>
+		</tr>
+
+		{% endfor %}
+		{% else %}
+		<h1>No hay registros</h1>
+		{% endif%}
+	</tbody>
+</table>
+
+<center>
+	<a class="btn btn-danger" href="{% url 'app2:Administrar' %}" style="margin: 15px">Volver</a>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base2.html' %}
+
+{% block titulo %} RegistrarCarrera {% endblock %}
+
+{% block propio %}
+<center>
+<form method="post" style="width: 60%">
+	
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" name="Guardar" class="is-validcontrol btn btn-danger" value="Registrar">
+</form>
+</center>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+</head>
+<body>
+<center>
+	<form class="navbar-search" method="post" action="#" style="margin: 15px">
+		{% csrf_token %}
+		<input type="text" class="search-query" placeholder="Buscar" name="buscar">
+		<input type="submit" class="btn btn-primary"  value="Buscar">
+	</form>
+</center>
+
+<table class="table table-hover table-responsive table-bordered" style="margin: 0px auto; width: 90%">
+	<thead>
+		<tr>
+			<th scope="col">Codigo</th>
+			<th scope="col">Carrera</th>
+			<th scope="col">Docente</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Grado</th>
+			<th scope="col">Acciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% if object_list %}
+
+		{% for Curso in object_list %}
+
+		<tr>
+			<th scope="row">{{Curso.idcurso}}</th>
+			<td>{{Curso.idcarrera}}</td>
+			<td>{{Curso.iddocente}}</td>
+			<td>{{Curso.nombre}}</td>
+			<td>{{Curso.grado}}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'app2:ActualizarCurso' Curso.idcurso %}"">Editar</a>
+				<a class="btn btn-danger" href="{% url 'app2:CursoDelete' Curso.idcurso %}">Eliminar</a>	
+			</td>
+		</tr>
+
+		{% endfor %}
+		{% else %}
+		<h1>No hay registros</h1>
+		{% endif%}
+	</tbody>
+</table>
+
+<center>
+	<a class="btn btn-danger" href="{% url 'app2:Administrar' %}" style="margin: 15px">Volver</a>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'base2.html' %}
+
+{% block titulo %} SubirNotas {% endblock %}
+
+{% block propio %}
+
+<div>
+<div style="width: 33%; float: left;">
+	
+<nav class="navbar navbar-inverse" style="background-color: rgba(02,49,59);" id="nav3">
+
+      <ul class="nav lex-column" >
+        <li class="nav-item3"><a id="nav-link3"  href="{% url 'app2:RegistrarDocentes' %}">Registrar Docentes</a></li>
+        <li class="nav-item3"><a id="nav-link3" href="{% url 'app2:RegistrarEstudiantes' %}">Registrar Estudiantes</a></li>
+        <li class="nav-item3"><a id="nav-link3"  href="{% url 'app2:RegistrarCurso' %}">Registrar Cursos</a></li>
+        <li class="nav-item3"><a id="nav-link3"  href="{% url 'app2:RegistrarCarrera' %}">Registrar Carrera</a></li>
+      </ul>
+</nav>
+</div >
+
+	<div style="width: 55%; float: right;">
+		<legend class="legend">Ingrese los datos de la nueva carrera</legend>
+
+		<form method='POST'>
+			{% csrf_token%}
+			{{form.as_p}}
+			<input type="submit" name="Registrar" value="Subir Notas" class="btn btn-danger mx-auto d-block text-center">
+		</form>
+
+	</div>
+</div>
+{% endblock %}
